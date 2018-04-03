@@ -11,7 +11,7 @@ def files
 end
 
 def import
-  @fies.each do |file| Song.new_by_filename(file)}
+  @fies.each do |file| Song.new_by_filename(file)
 end
 end
 
