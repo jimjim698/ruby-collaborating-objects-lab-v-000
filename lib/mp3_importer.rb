@@ -3,6 +3,7 @@ attr_accessor :path, :files
 
 def initialize(file)
   @path = file
+  @files = Dir.entries(@path)
 end
 
 def files
