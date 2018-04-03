@@ -3,7 +3,7 @@ attr_accessor :path, :files
 
 def initialize(file)
   @path = file
-  @files = Dir.entries(@path).grep(/.*\.mp3/)
+  @files = Dir.entries(@path)
 end
 
 def files
@@ -11,9 +11,10 @@ def files
 end
 
 def import
-  @files.each do |file| Song.new_by_filename(file)
+  self.files.each do |file|
+  song = Song.new_by_filename(file)
+    Artist.all << song.artist unless Artist.all.include?(song.artist)
+  end
 end
-end
-
 
 end
